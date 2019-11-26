@@ -4,7 +4,7 @@ class Post(models.Model):
     username = models.CharField(max_length=150)
     title = models.CharField(max_length=255)
     description = models.TextField()
-    video_link = models.TextField()
+    # video_link = models.TextField()
 
     def __str__(self):
         return self.title

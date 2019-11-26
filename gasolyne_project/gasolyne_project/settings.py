@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'gasolyne_database',
         'USER': 'vk',
-        'PASSWORD': 'vk',
+        'PASSWORD': '123',
         'HOST': 'localhost'
     }
 }
