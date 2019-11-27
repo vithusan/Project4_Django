@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import AllPost from './component/AllPost';
-// import SinglePost from './component/SinglePost'
+import SinglePost from './component/SinglePost'
 
 class App extends React.Component {
   render() {
@@ -14,7 +14,7 @@ class App extends React.Component {
           </div>
           <Switch>
             <Route exact path='/' component={AllPost} />
-            {/* <Route exact path='/signlepost/:id' component={SinglePost} /> */}
+            <Route exact path='/singlepost/:id' component={SinglePost} />
           </Switch>
         </div>
       </Router>

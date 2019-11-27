@@ -23,7 +23,7 @@ class AllPost extends Component {
                 {this.state.allPost.map((post) => {
                     return (
                         <div key={post.id}>
-                            <h2>{post.title}</h2>
+                            <Link to={`/singlepost/${post.id}`} >{post.title}</Link>
                         </div>
                     )
                 })}
