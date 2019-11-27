@@ -4,12 +4,12 @@ from .models import Post, Comment, Like
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ('id', 'username', 'content')
+        fields = ('id', 'username', 'content', 'post')
 
 class LikeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Like
-        fields = ('id', 'isLike')
+        fields = ('id', 'isLike', 'post')
 
 class PostSerializer(serializers.ModelSerializer):
     comments = CommentSerializer(many=True, read_only=True)

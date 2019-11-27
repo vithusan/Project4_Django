@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import AllPost from './component/AllPost';
+// import SinglePost from './component/SinglePost'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <Router>
+        <div>
+          <div className="header">
+
+          </div>
+          <Switch>
+            <Route exact path='/' component={AllPost} />
+            {/* <Route exact path='/signlepost/:id' component={SinglePost} /> */}
+          </Switch>
+        </div>
+      </Router>
+    )
+  }
 }
 
 export default App;
