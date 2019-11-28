@@ -6,7 +6,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     video_link = models.CharField(max_length=100, default='n/a')
-    video_thumbnail = models.CharField(max_length=100, default='n/a')
+    # video_thumbnail = models.CharField(max_length=100, default='n/a')
 
     def __str__(self):
         return self.title
