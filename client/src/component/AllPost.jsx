@@ -23,7 +23,7 @@ class AllPost extends Component {
                 {this.state.allPost.map((post) => {
                     return (
                         <div key={post.id}>
-                            <Link to={`/singlepost/${post.id}`} ><img src={`http://img.youtube.com/vi/${post.video_link}/0.jpg`} alt=' ' className='videoThumbnail' /></Link>
+                            <Link to={`/singlepost/${post.id}`} ><img src={`http://img.youtube.com/vi/${post.video_link}/mqdefault.jpg`} alt=' ' className='videoThumbnail' /></Link>
                         </div>
                     )
                 })}
