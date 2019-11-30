@@ -34,7 +34,12 @@ class SinglePost extends Component {
         this.setState({ allPost: getAll.data })
     }
 
-
+    handleChange = (event) => {
+        event.preventDefault()
+        const prevState = { ...this.state.singleComment }
+        prevState[event.target.name] = event.target.value
+        this.setState({ singleComment: prevState })
+    }
 
     render() {
         let currentTitle = this.state.allPost.filter((test) => {
@@ -67,7 +72,11 @@ class SinglePost extends Component {
                         </div>
                     )
                 })}
-
+                <form id="postComment">
+                    <input type="text" placeholder="username" name="username" onChange={this.handleChange} value={this.state.singleComment.username} />
+                    <input type="text" placeholder="Add a comment..." name="content" onChange={this.handleChange} value={this.state.singleComment.content} />
+                    <input type="submit" value="Post" />
+                </form>
 
                 {this.state.singlePost.comments.map((comment) => {
                     return (
