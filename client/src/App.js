@@ -4,6 +4,7 @@ import './App.css';
 import AllPost from './component/AllPost';
 import SinglePost from './component/SinglePost'
 import testComponent from './component/testComponent';
+import Navbar from './component/Navbar'
 
 class App extends React.Component {
   render() {
@@ -11,7 +12,7 @@ class App extends React.Component {
       <Router>
         <div>
           <div className="header">
-
+            <Navbar />
           </div>
           <Switch>
             <Route exact path='/' component={AllPost} />

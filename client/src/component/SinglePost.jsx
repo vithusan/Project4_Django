@@ -80,6 +80,9 @@ class SinglePost extends Component {
             )
         })
 
+        let count = this.state.singlePost.likes.filter(like => like.isLike === true)
+        let numberOfLikes = count.length
+
         return (
             <div>
                 <iframe src={`https://www.youtube.com/embed/${this.state.singlePost.video_link}?autoplay=1`}
@@ -93,17 +96,13 @@ class SinglePost extends Component {
                 <h2>{this.state.singlePost.title}</h2>
                 <p>{this.state.singlePost.description}</p>
 
-                {this.state.singlePost.likes.map((like) => {
-                    return (
-                        <div key={like.id}>
-                            <p>{like.id}</p>
-                        </div>
-                    )
-                })}
+
                 <button onClick={this.likeBtnToggle} className={this.state.isLike ? 'likeBtn' : 'clickedLikeBtn'}>
                     Like
                 </button>
-
+                <div>
+                    {numberOfLikes}
+                </div>
                 <form onSubmit={this.createNewComment} id="postComment">
                     <input type="text" placeholder="username" name="username" onChange={this.handleChange} value={this.state.singleComment.username} />
                     <input type="text" placeholder="Add a comment..." name="content" onChange={this.handleChange} value={this.state.singleComment.content} />
