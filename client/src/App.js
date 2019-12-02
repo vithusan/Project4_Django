@@ -11,14 +11,16 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <div className="header">
+          <div className="topNav">
             <Navbar />
           </div>
-          <Switch>
-            <Route exact path='/' component={AllPost} />
-            <Route exact path='/singlepost/:id' component={SinglePost} />
-            <Route exact path='/test/path' component={testComponent} />
-          </Switch>
+          <div className="mainContainer">
+            <Switch>
+              <Route exact path='/' component={AllPost} />
+              <Route exact path='/singlepost/:id' component={SinglePost} />
+              <Route exact path='/test/path' component={testComponent} />
+            </Switch>
+          </div>
         </div>
       </Router>
     )

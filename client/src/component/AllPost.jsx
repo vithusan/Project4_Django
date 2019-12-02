@@ -20,13 +20,18 @@ class AllPost extends Component {
     render() {
         return (
             <div className="App">
-                {this.state.allPost.map((post) => {
-                    return (
-                        <div key={post.id}>
-                            <Link to={`/singlepost/${post.id}`} ><img src={`http://img.youtube.com/vi/${post.video_link}/mqdefault.jpg`} alt=' ' className='videoThumbnail' /></Link>
-                        </div>
-                    )
-                })}
+                <div className="listOfPost">
+                    {this.state.allPost.map((post) => {
+                        return (
+                            <div key={post.id} className="singleVideoContainer">
+                                <Link to={`/singlepost/${post.id}`} >
+                                    <img src={`http://img.youtube.com/vi/${post.video_link}/mqdefault.jpg`} alt=' ' className='videoThumbnail' />
+                                    <img src="https://www.friidesigns.com/wp-content/uploads/2018/11/white-play-icon-png-6.png" alt="play icon" className="overlay" />
+                                </Link>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
         );
     }
