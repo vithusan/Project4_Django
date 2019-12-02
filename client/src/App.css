@@ -30,3 +30,13 @@
   width: 100%;
   height: 650px;
 }
+
+.likeBtn {
+  background: rgb(145, 103, 103);
+
+}
+
+.clickedLikeBtn {
+  background: #282c34;
+  color: #fff;
+}

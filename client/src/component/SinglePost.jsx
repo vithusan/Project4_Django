@@ -15,10 +15,12 @@ class SinglePost extends Component {
         allPost: [],
         singleComment: {
             username: '',
-            content: ''
+            content: '',
+            post: Number(this.props.match.params.id)
         },
         singleLike: {
-            isLike: ''
+            isLike: true,
+            post: Number(this.props.match.params.id)
         }
     }
     componentDidMount = () => {
@@ -41,6 +43,31 @@ class SinglePost extends Component {
         this.setState({ singleComment: prevState })
     }
 
+    createNewComment = async (event) => {
+        event.preventDefault();
+        const postSingleComment = {
+            username: this.state.singleComment.username,
+            content: this.state.singleComment.content,
+            post: this.state.singleComment.post
+        }
+        await axios.post('/api/v1/comment/', postSingleComment)
+        await this.getSinglePost()
+    }
+
+    likeBtnToggle = async (event) => {
+        event.preventDefault();
+        await this.setState({ isLike: !this.state.isLike })
+        await console.log(this.state.isLike)
+        const postSingleLike = {
+            isLike: this.state.singleLike.isLike,
+            post: this.state.singleLike.post
+        }
+        if (this.state.isLike === true) {
+            await axios.post('/api/v1/like/', postSingleLike)
+        }
+        await console.log(Error)
+        await this.getSinglePost()
+    }
     render() {
         let currentTitle = this.state.allPost.filter((test) => {
             return test.title !== this.state.singlePost.title
@@ -65,6 +92,7 @@ class SinglePost extends Component {
                 <h4>{this.state.singlePost.username}</h4>
                 <h2>{this.state.singlePost.title}</h2>
                 <p>{this.state.singlePost.description}</p>
+
                 {this.state.singlePost.likes.map((like) => {
                     return (
                         <div key={like.id}>
@@ -72,7 +100,11 @@ class SinglePost extends Component {
                         </div>
                     )
                 })}
-                <form id="postComment">
+                <button onClick={this.likeBtnToggle} className={this.state.isLike ? 'likeBtn' : 'clickedLikeBtn'}>
+                    Like
+                </button>
+
+                <form onSubmit={this.createNewComment} id="postComment">
                     <input type="text" placeholder="username" name="username" onChange={this.handleChange} value={this.state.singleComment.username} />
                     <input type="text" placeholder="Add a comment..." name="content" onChange={this.handleChange} value={this.state.singleComment.content} />
                     <input type="submit" value="Post" />
