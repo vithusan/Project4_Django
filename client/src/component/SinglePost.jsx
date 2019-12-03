@@ -81,10 +81,10 @@ class SinglePost extends Component {
         let renderVideo = currentVideo.map((test2, i) => {
             return (
                 <div key={i} className="singleVideoContainerInSinglePost">
-                    <Link to={`/singlepost/${test2.id}`} onClick={() => this.ComponentWillReceiveProps()}>
+                    <a href={`/singlepost/${test2.id}`} >
                         <img src={`http://img.youtube.com/vi/${test2.video_link}/mqdefault.jpg`} alt=' ' className='videoThumbnailInSinglePost' />
                         <img src="https://www.friidesigns.com/wp-content/uploads/2018/11/white-play-icon-png-6.png" alt="play icon" className="overlay" />
-                    </Link>
+                    </a>
                 </div>
             )
         })
