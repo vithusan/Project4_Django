@@ -26,13 +26,12 @@
 .topNav{
   width: 100%;
   background: #fff;
-  position: sticky;
+
   top: 0;
+  
 }
 
-.header{
-  max-width: 1000px;
-  margin: 0 auto;
+.logo{
   color: #2c2d30;
   font-size: 12px;
   display: flex;
@@ -41,13 +40,37 @@
   
 }
 
+.header{
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .iconPng{
   width: 30px;
   height: 30px;
 }
 
-.header:hover{
+.logo:hover{
   cursor: pointer;
+}
+
+.material-icons.md-40 { font-size: 40px; }
+
+.material-icons{
+  cursor: pointer;
+}
+
+.navbarSearch{
+  border: none;
+  width: 350px;
+  height: 30px;
+  background: #d5e0dd85;
+  padding: 2px 10px;
+  font-size: 17px;
 }
 
 .listOfPost {
@@ -117,10 +140,11 @@
 }
 
 .singlePostBelowIframe{
-  margin: 25px 40px;
+  margin: 25px 40px 0px 25px;
   display: flex;
   flex-direction: row;
-
+  justify-content: space-evenly;
+  padding-bottom: 50px;
 }
 
 .leftSection {
@@ -213,4 +237,27 @@
   background: #fff;
   margin-bottom: 15px;
   padding: 10px 15px;
+}
+
+.singleVideoContainerInSinglePost {
+  background: #000;
+  position: relative;
+  height: 140px;
+  margin-bottom: 20px;
+}
+
+.videoThumbnailInSinglePost{
+  width: 265px;
+  height: 140px;
+  opacity: 1;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.singleVideoContainerInSinglePost:hover .videoThumbnailInSinglePost{
+  opacity: 0.4;
+}
+
+.singleVideoContainerInSinglePost:hover .overlay{
+  opacity: 1;
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, Router } from 'react-router-dom'
 
 class SinglePost extends Component {
     state = {
@@ -69,17 +69,22 @@ class SinglePost extends Component {
         await this.getSinglePost()
     }
 
-    onClickRefreshFunction = () => {
+    ComponentWillReceiveProps = () => {
+        this.getAllPost()
         this.getSinglePost()
     }
+
     render() {
         let currentVideo = this.state.allPost.filter((test) => {
             return test.title !== this.state.singlePost.title
         })
         let renderVideo = currentVideo.map((test2, i) => {
             return (
-                <div key={i}>
-                    <Link to={`/singlepost/${test2.id}`} onClick={() => this.onClickRefreshFunction()}><img src={`http://img.youtube.com/vi/${test2.video_link}/mqdefault.jpg`} alt=' ' className='videoThumbnail' /></Link>
+                <div key={i} className="singleVideoContainerInSinglePost">
+                    <Link to={`/singlepost/${test2.id}`} onClick={() => this.ComponentWillReceiveProps()}>
+                        <img src={`http://img.youtube.com/vi/${test2.video_link}/mqdefault.jpg`} alt=' ' className='videoThumbnailInSinglePost' />
+                        <img src="https://www.friidesigns.com/wp-content/uploads/2018/11/white-play-icon-png-6.png" alt="play icon" className="overlay" />
+                    </Link>
                 </div>
             )
         })
