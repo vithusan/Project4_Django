@@ -68,14 +68,18 @@ class SinglePost extends Component {
         await console.log(Error)
         await this.getSinglePost()
     }
+
+    onClickRefreshFunction = () => {
+        this.getSinglePost()
+    }
     render() {
-        let currentTitle = this.state.allPost.filter((test) => {
+        let currentVideo = this.state.allPost.filter((test) => {
             return test.title !== this.state.singlePost.title
         })
-        let renderTitle = currentTitle.map((test2, i) => {
+        let renderVideo = currentVideo.map((test2, i) => {
             return (
                 <div key={i}>
-                    <Link to={`/singlepost/${test2.id}`} ><img src={`http://img.youtube.com/vi/${test2.video_link}/mqdefault.jpg`} alt=' ' className='videoThumbnail' /></Link>
+                    <Link to={`/singlepost/${test2.id}`} onClick={() => this.onClickRefreshFunction()}><img src={`http://img.youtube.com/vi/${test2.video_link}/mqdefault.jpg`} alt=' ' className='videoThumbnail' /></Link>
                 </div>
             )
         })
@@ -92,33 +96,46 @@ class SinglePost extends Component {
                     title='video'
                     className='singleVideo'
                 />
-                <h4>{this.state.singlePost.username}</h4>
-                <h2>{this.state.singlePost.title}</h2>
-                <p>{this.state.singlePost.description}</p>
-
-
-                <button onClick={this.likeBtnToggle} className={this.state.isLike ? 'likeBtn' : 'clickedLikeBtn'}>
-                    Like
-                </button>
-                <div>
-                    {numberOfLikes}
-                </div>
-                <form onSubmit={this.createNewComment} id="postComment">
-                    <input type="text" placeholder="username" name="username" onChange={this.handleChange} value={this.state.singleComment.username} />
-                    <input type="text" placeholder="Add a comment..." name="content" onChange={this.handleChange} value={this.state.singleComment.content} />
-                    <input type="submit" value="Post" />
-                </form>
-
-                {this.state.singlePost.comments.map((comment) => {
-                    return (
-                        <div key={comment.id}>
-                            <h3>{comment.username}</h3>
-                            <p>{comment.content}</p>
+                <div className="singlePostBelowIframe">
+                    <div className="leftSection">
+                        <div className="titleAndLikeBtn">
+                            <h2>{this.state.singlePost.title}</h2>
+                            <div className="likeBtnNumberDiv">
+                                <i onClick={this.likeBtnToggle} className={this.state.isLike ? 'material-icons filled' : 'material-icons empty'}>
+                                    favorite
+                                </i>
+                                <div>
+                                    {numberOfLikes}
+                                </div>
+                            </div>
                         </div>
-                    )
-                })}
-                <div>
-                    {renderTitle}
+                        <h4>{this.state.singlePost.username}</h4>
+                        <div className="singlePostDescription">
+                            <p>{this.state.singlePost.description}</p>
+                        </div>
+                        <div id="postComment">
+                            <form onSubmit={this.createNewComment}>
+                                <input type="text" placeholder="username" name="username" onChange={this.handleChange} value={this.state.singleComment.username} className="txtUsername" />
+                                <div className="commentAndSubmitBtn">
+                                    <input type="text" placeholder="Add a comment..." name="content" onChange={this.handleChange} value={this.state.singleComment.content} className="txtComment" />
+                                    <button type="submit" className="submitBtn"> Comment </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div className="listOfCommentsDiv">
+                            {this.state.singlePost.comments.map((comment) => {
+                                return (
+                                    <div key={comment.id} className="listOfComments">
+                                        <h3>{comment.username}</h3>
+                                        <p>{comment.content}</p>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>
+                    <div className="rightSection">
+                        {renderVideo}
+                    </div>
                 </div>
             </div>
         );

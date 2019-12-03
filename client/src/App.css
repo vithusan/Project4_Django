@@ -24,8 +24,10 @@
 }
 
 .topNav{
-width: 100%;
-background: #fff;
+  width: 100%;
+  background: #fff;
+  position: sticky;
+  top: 0;
 }
 
 .header{
@@ -36,6 +38,7 @@ background: #fff;
   display: flex;
   align-items: center;
   text-decoration: none;
+  
 }
 
 .iconPng{
@@ -111,4 +114,103 @@ background: #fff;
 .clickedLikeBtn {
   background: #282c34;
   color: #fff;
+}
+
+.singlePostBelowIframe{
+  margin: 25px 40px;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.leftSection {
+  width: 70%;
+  margin-right: 30px;
+}
+
+.singlePostDescription{
+  width: 75%;
+}
+
+.titleAndLikeBtn{
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.titleAndLikeBtn h2{
+  width: 75%;
+}
+
+.likeBtnNumberDiv{
+  width: 48px;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.likeBtnNumberDiv .material-icons.filled {
+  color: #F44336;
+  cursor: pointer;
+}
+
+.likeBtnNumberDiv .material-icons.empty {
+  color: #78909C;
+  cursor: pointer;
+}
+
+.commentAndSubmitBtn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.txtUsername{
+  width: 80%;
+  height: 25px;
+  border: none;
+  font-size: 18px;
+  padding: 15px;
+  background: transparent;
+}
+
+.txtComment{
+  width: 80%;
+  height: 25px;
+  border: none;
+  font-size: 18px;
+  padding: 15px;
+  border-right: 1px solid #0000002a;
+
+}
+
+.submitBtn{
+  height: 55px;
+  border: none;
+  border-left: 1px solid #0000002a;
+  color: #0961d3;
+  font-size: 16px;
+  padding: 0px 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.submitBtn:hover {
+  cursor: pointer;
+}
+
+.listOfCommentsDiv{
+  margin-top: 50px;
+}
+
+.listOfComments{
+  width: 93.3%;
+  background: #fff;
+  margin-bottom: 15px;
+  padding: 10px 15px;
 }

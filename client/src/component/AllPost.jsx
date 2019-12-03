@@ -27,6 +27,9 @@ class AllPost extends Component {
                                 <Link to={`/singlepost/${post.id}`} >
                                     <img src={`http://img.youtube.com/vi/${post.video_link}/mqdefault.jpg`} alt=' ' className='videoThumbnail' />
                                     <img src="https://www.friidesigns.com/wp-content/uploads/2018/11/white-play-icon-png-6.png" alt="play icon" className="overlay" />
+                                    {/* <i className="material-icons overlay" >
+                                        play_arrow
+                                    </i> */}
                                 </Link>
                             </div>
                         )
